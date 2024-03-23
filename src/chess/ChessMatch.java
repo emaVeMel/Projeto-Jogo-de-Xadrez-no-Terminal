@@ -24,12 +24,24 @@ public class ChessMatch {
     }
 
     private void placeNewPiece(char column, int row, ChessPiece piece) {
-        if (column < 'a' || column > 'h' || row < 1 || row > 8) throw new ChessException("Error: the position must be between a1 and h8.");
+        if (column < 'a' || column > 'h' || row < 1 || row > 8)
+            throw new ChessException("Error: the position must be between a1 and h8.");
         board.placePiece(piece, new ChessPosition(column, row).toPosition());
     }
 
     private void initialSetup() {
-        placeNewPiece('a', 8, new Rook(board, Color.WHITE));
-        placeNewPiece('b', 6, new King(board, Color.BLACK));
+        placeNewPiece('c', 1, new Rook(board, Color.WHITE));
+        placeNewPiece('c', 2, new Rook(board, Color.WHITE));
+        placeNewPiece('d', 2, new Rook(board, Color.WHITE));
+        placeNewPiece('e', 2, new Rook(board, Color.WHITE));
+        placeNewPiece('e', 1, new Rook(board, Color.WHITE));
+        placeNewPiece('d', 1, new King(board, Color.WHITE));
+
+        placeNewPiece('c', 7, new Rook(board, Color.BLACK));
+        placeNewPiece('c', 8, new Rook(board, Color.BLACK));
+        placeNewPiece('d', 7, new Rook(board, Color.BLACK));
+        placeNewPiece('e', 7, new Rook(board, Color.BLACK));
+        placeNewPiece('e', 8, new Rook(board, Color.BLACK));
+        placeNewPiece('d', 8, new King(board, Color.BLACK));
     }
 }
