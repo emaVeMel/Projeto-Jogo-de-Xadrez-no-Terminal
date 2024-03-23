@@ -16,6 +16,14 @@ public class Position {
         return row;
     }
 
+    public void setRow(Integer row) {
+        this.row = row;
+    }
+
+    public void setColumn(Integer column) {
+        this.column = column;
+    }
+
     public Integer getColumn() {
         return column;
     }
