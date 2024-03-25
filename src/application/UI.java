@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 public class UI {
 
+    //letter color
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_BLACK = "\u001B[30m";
     public static final String ANSI_RED = "\u001B[31m";
@@ -19,6 +20,7 @@ public class UI {
     public static final String ANSI_CYAN = "\u001B[36m";
     public static final String ANSI_WHITE = "\u001B[37m";
 
+    //background color
     public static final String ANSI_BLACK_BACKGROUND = "\u001B[40m";
     public static final String ANSI_RED_BACKGROUND = "\u001B[41m";
     public static final String ANSI_GREEN_BACKGROUND = "\u001B[42m";
@@ -68,7 +70,7 @@ public class UI {
     }
 
     public static void printPiece(ChessPiece piece, boolean background) {
-        if (background) System.out.print(ANSI_BLUE_BACKGROUND);
+        if (background) System.out.print(ANSI_PURPLE_BACKGROUND);
         if (piece == null) System.out.print("-" + ANSI_RESET);
         else {
             if (piece.getColor() == Color.WHITE) {
