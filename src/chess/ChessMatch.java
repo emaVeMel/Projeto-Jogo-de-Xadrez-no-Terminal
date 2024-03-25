@@ -6,12 +6,22 @@ import boardgame.Position;
 import chess.pieces.King;
 import chess.pieces.Rook;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ChessMatch {
-    private static Integer turn = 1;
-    private static Color currentPlayer = Color.WHITE;
+    private static Integer turn;
+    private static Color currentPlayer;
     private static Board board;
 
+    private static List<Piece> piecesOnTheBoard;
+    private static List<Piece> capturedPieces;
+
     public ChessMatch() {
+        turn = 1;
+        currentPlayer= Color.WHITE;
+        piecesOnTheBoard = new ArrayList<>();
+        capturedPieces = new ArrayList<>();
         board = new Board(8, 8);
         initialSetup();
     }
@@ -47,6 +57,10 @@ public class ChessMatch {
     private static Piece makeMove(Position source, Position target) {
         Piece p = board.removePiece(source);
         Piece capturedPiece = board.removePiece(target);
+        if (capturedPiece != null) {
+            piecesOnTheBoard.remove(capturedPiece);
+            capturedPieces.add(capturedPiece);
+        }
         board.placePiece(p, target);
         return capturedPiece;
     }
@@ -76,9 +90,8 @@ public class ChessMatch {
     }
 
     private void placeNewPiece(char column, int row, ChessPiece piece) {
-        if (column < 'a' || column > 'h' || row < 1 || row > 8)
-            throw new ChessException("Error: the position must be between a1 and h8.");
         board.placePiece(piece, new ChessPosition(column, row).toPosition());
+        piecesOnTheBoard.add(piece);
     }
 
     private void initialSetup() {
