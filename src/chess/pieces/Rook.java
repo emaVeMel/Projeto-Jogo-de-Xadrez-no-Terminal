@@ -18,42 +18,42 @@ public class Rook extends ChessPiece {
 
     @Override
     public boolean[][] possibleMoves() {
-        boolean[][] matAux = new boolean[getBoard().getRows()][getBoard().getColumns()];
+        boolean[][] movements = new boolean[getBoard().getRows()][getBoard().getColumns()];
 
-        Position p = new Position(0, 0);
+        Position movePosition = new Position(0, 0);
 
         //above
-        p.setValues(position.getRow() - 1, position.getColumn());
-        while (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
-            matAux[p.getRow()][p.getColumn()] = true;
-            p.setRow(p.getRow() - 1);
+        movePosition.setValues(position.getRow() - 1, position.getColumn());
+        while (getBoard().positionExists(movePosition) && !getBoard().thereIsAPiece(movePosition)) {
+            movements[movePosition.getRow()][movePosition.getColumn()] = true;
+            movePosition.setRow(movePosition.getRow() - 1);
         }
-        if (getBoard().positionExists(p) && isThereOpponentPiece(p)) matAux[p.getRow()][p.getColumn()] = true;
+        if (getBoard().positionExists(movePosition) && isThereOpponentPiece(movePosition)) movements[movePosition.getRow()][movePosition.getColumn()] = true;
 
         //left
-        p.setValues(position.getRow(), position.getColumn() - 1);
-        while (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
-            matAux[p.getRow()][p.getColumn()] = true;
-            p.setColumn(p.getColumn() - 1);
+        movePosition.setValues(position.getRow(), position.getColumn() - 1);
+        while (getBoard().positionExists(movePosition) && !getBoard().thereIsAPiece(movePosition)) {
+            movements[movePosition.getRow()][movePosition.getColumn()] = true;
+            movePosition.setColumn(movePosition.getColumn() - 1);
         }
-        if (getBoard().positionExists(p) && isThereOpponentPiece(p)) matAux[p.getRow()][p.getColumn()] = true;
+        if (getBoard().positionExists(movePosition) && isThereOpponentPiece(movePosition)) movements[movePosition.getRow()][movePosition.getColumn()] = true;
 
         //right
-        p.setValues(position.getRow(), position.getColumn() + 1);
-        while (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
-            matAux[p.getRow()][p.getColumn()] = true;
-            p.setColumn(p.getColumn() + 1);
+        movePosition.setValues(position.getRow(), position.getColumn() + 1);
+        while (getBoard().positionExists(movePosition) && !getBoard().thereIsAPiece(movePosition)) {
+            movements[movePosition.getRow()][movePosition.getColumn()] = true;
+            movePosition.setColumn(movePosition.getColumn() + 1);
         }
-        if (getBoard().positionExists(p) && isThereOpponentPiece(p)) matAux[p.getRow()][p.getColumn()] = true;
+        if (getBoard().positionExists(movePosition) && isThereOpponentPiece(movePosition)) movements[movePosition.getRow()][movePosition.getColumn()] = true;
 
         //below
-        p.setValues(position.getRow() + 1, position.getColumn());
-        while (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
-            matAux[p.getRow()][p.getColumn()] = true;
-            p.setRow(p.getRow() + 1);
+        movePosition.setValues(position.getRow() + 1, position.getColumn());
+        while (getBoard().positionExists(movePosition) && !getBoard().thereIsAPiece(movePosition)) {
+            movements[movePosition.getRow()][movePosition.getColumn()] = true;
+            movePosition.setRow(movePosition.getRow() + 1);
         }
-        if (getBoard().positionExists(p) && isThereOpponentPiece(p)) matAux[p.getRow()][p.getColumn()] = true;
+        if (getBoard().positionExists(movePosition) && isThereOpponentPiece(movePosition)) movements[movePosition.getRow()][movePosition.getColumn()] = true;
 
-        return matAux;
+        return movements;
     }
 }

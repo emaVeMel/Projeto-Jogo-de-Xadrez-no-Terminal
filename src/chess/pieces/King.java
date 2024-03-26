@@ -23,58 +23,58 @@ public class King extends ChessPiece {
 
     @Override
     public boolean[][] possibleMoves() {
-        boolean[][] matAux = new boolean[getBoard().getRows()][getBoard().getColumns()];
+        boolean[][] movements = new boolean[getBoard().getRows()][getBoard().getColumns()];
 
-        Position p = new Position(0, 0);
+        Position movePosition = new Position(0, 0);
 
         //above
-        p.setValues(position.getRow() - 1, position.getColumn());
-        if (getBoard().positionExists(p) && canMove(p)) {
-            matAux[p.getRow()][p.getColumn()] = true;
+        movePosition.setValues(position.getRow() - 1, position.getColumn());
+        if (getBoard().positionExists(movePosition) && canMove(movePosition)) {
+            movements[movePosition.getRow()][movePosition.getColumn()] = true;
         }
 
         //below
-        p.setValues(position.getRow() + 1, position.getColumn());
-        if (getBoard().positionExists(p) && canMove(p)) {
-            matAux[p.getRow()][p.getColumn()] = true;
+        movePosition.setValues(position.getRow() + 1, position.getColumn());
+        if (getBoard().positionExists(movePosition) && canMove(movePosition)) {
+            movements[movePosition.getRow()][movePosition.getColumn()] = true;
         }
 
         //right
-        p.setValues(position.getRow(), position.getColumn() + 1);
-        if (getBoard().positionExists(p) && canMove(p)) {
-            matAux[p.getRow()][p.getColumn()] = true;
+        movePosition.setValues(position.getRow(), position.getColumn() + 1);
+        if (getBoard().positionExists(movePosition) && canMove(movePosition)) {
+            movements[movePosition.getRow()][movePosition.getColumn()] = true;
         }
 
         //left
-        p.setValues(position.getRow(), position.getColumn() - 1);
-        if (getBoard().positionExists(p) && canMove(p)) {
-            matAux[p.getRow()][p.getColumn()] = true;
+        movePosition.setValues(position.getRow(), position.getColumn() - 1);
+        if (getBoard().positionExists(movePosition) && canMove(movePosition)) {
+            movements[movePosition.getRow()][movePosition.getColumn()] = true;
         }
 
         //above-right
-        p.setValues(position.getRow() - 1, position.getColumn() + 1);
-        if (getBoard().positionExists(p) && canMove(p)) {
-            matAux[p.getRow()][p.getColumn()] = true;
+        movePosition.setValues(position.getRow() - 1, position.getColumn() + 1);
+        if (getBoard().positionExists(movePosition) && canMove(movePosition)) {
+            movements[movePosition.getRow()][movePosition.getColumn()] = true;
         }
 
         //above-left
-        p.setValues(position.getRow() - 1, position.getColumn() - 1);
-        if (getBoard().positionExists(p) && canMove(p)) {
-            matAux[p.getRow()][p.getColumn()] = true;
+        movePosition.setValues(position.getRow() - 1, position.getColumn() - 1);
+        if (getBoard().positionExists(movePosition) && canMove(movePosition)) {
+            movements[movePosition.getRow()][movePosition.getColumn()] = true;
         }
 
         //below-right
-        p.setValues(position.getRow() + 1, position.getColumn() + 1);
-        if (getBoard().positionExists(p) && canMove(p)) {
-            matAux[p.getRow()][p.getColumn()] = true;
+        movePosition.setValues(position.getRow() + 1, position.getColumn() + 1);
+        if (getBoard().positionExists(movePosition) && canMove(movePosition)) {
+            movements[movePosition.getRow()][movePosition.getColumn()] = true;
         }
 
         //below-left
-        p.setValues(position.getRow() + 1, position.getColumn() - 1);
-        if (getBoard().positionExists(p) && canMove(p)) {
-            matAux[p.getRow()][p.getColumn()] = true;
+        movePosition.setValues(position.getRow() + 1, position.getColumn() - 1);
+        if (getBoard().positionExists(movePosition) && canMove(movePosition)) {
+            movements[movePosition.getRow()][movePosition.getColumn()] = true;
         }
 
-        return matAux;
+        return movements;
     }
 }

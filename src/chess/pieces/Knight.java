@@ -18,50 +18,50 @@ public class Knight extends ChessPiece {
 
     @Override
     public boolean[][] possibleMoves() {
-        boolean matAux[][] = new boolean[getBoard().getRows()][getBoard().getColumns()];
+        boolean movements[][] = new boolean[getBoard().getRows()][getBoard().getColumns()];
 
-        Position p = new Position(0, 0);
+        Position movePosition = new Position(0, 0);
 
         //NW-up
-        p.setValues(position.getRow() - 2, position.getColumn() - 1);
-        if (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) matAux[p.getRow()][p.getColumn()] = true;
-        if (getBoard().positionExists(p) && isThereOpponentPiece(p)) matAux[p.getRow()][p.getColumn()] = true;
+        movePosition.setValues(position.getRow() - 2, position.getColumn() - 1);
+        if (getBoard().positionExists(movePosition) && !getBoard().thereIsAPiece(movePosition)) movements[movePosition.getRow()][movePosition.getColumn()] = true;
+        if (getBoard().positionExists(movePosition) && isThereOpponentPiece(movePosition)) movements[movePosition.getRow()][movePosition.getColumn()] = true;
 
         //NW-down
-        p.setValues(position.getRow() - 1, position.getColumn() - 2);
-        if (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) matAux[p.getRow()][p.getColumn()] = true;
-        if (getBoard().positionExists(p) && isThereOpponentPiece(p)) matAux[p.getRow()][p.getColumn()] = true;
+        movePosition.setValues(position.getRow() - 1, position.getColumn() - 2);
+        if (getBoard().positionExists(movePosition) && !getBoard().thereIsAPiece(movePosition)) movements[movePosition.getRow()][movePosition.getColumn()] = true;
+        if (getBoard().positionExists(movePosition) && isThereOpponentPiece(movePosition)) movements[movePosition.getRow()][movePosition.getColumn()] = true;
 
         //NE-up
-        p.setValues(position.getRow() - 2, position.getColumn() + 1);
-        if (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) matAux[p.getRow()][p.getColumn()] = true;
-        if (getBoard().positionExists(p) && isThereOpponentPiece(p)) matAux[p.getRow()][p.getColumn()] = true;
+        movePosition.setValues(position.getRow() - 2, position.getColumn() + 1);
+        if (getBoard().positionExists(movePosition) && !getBoard().thereIsAPiece(movePosition)) movements[movePosition.getRow()][movePosition.getColumn()] = true;
+        if (getBoard().positionExists(movePosition) && isThereOpponentPiece(movePosition)) movements[movePosition.getRow()][movePosition.getColumn()] = true;
 
         //NE-down
-        p.setValues(position.getRow() - 1, position.getColumn() + 2);
-        if (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) matAux[p.getRow()][p.getColumn()] = true;
-        if (getBoard().positionExists(p) && isThereOpponentPiece(p)) matAux[p.getRow()][p.getColumn()] = true;
+        movePosition.setValues(position.getRow() - 1, position.getColumn() + 2);
+        if (getBoard().positionExists(movePosition) && !getBoard().thereIsAPiece(movePosition)) movements[movePosition.getRow()][movePosition.getColumn()] = true;
+        if (getBoard().positionExists(movePosition) && isThereOpponentPiece(movePosition)) movements[movePosition.getRow()][movePosition.getColumn()] = true;
 
         //SW-down
-        p.setValues(position.getRow() + 2, position.getColumn() - 1);
-        if (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) matAux[p.getRow()][p.getColumn()] = true;
-        if (getBoard().positionExists(p) && isThereOpponentPiece(p)) matAux[p.getRow()][p.getColumn()] = true;
+        movePosition.setValues(position.getRow() + 2, position.getColumn() - 1);
+        if (getBoard().positionExists(movePosition) && !getBoard().thereIsAPiece(movePosition)) movements[movePosition.getRow()][movePosition.getColumn()] = true;
+        if (getBoard().positionExists(movePosition) && isThereOpponentPiece(movePosition)) movements[movePosition.getRow()][movePosition.getColumn()] = true;
 
         //SW-up
-        p.setValues(position.getRow() + 1, position.getColumn() - 2);
-        if (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) matAux[p.getRow()][p.getColumn()] = true;
-        if (getBoard().positionExists(p) && isThereOpponentPiece(p)) matAux[p.getRow()][p.getColumn()] = true;
+        movePosition.setValues(position.getRow() + 1, position.getColumn() - 2);
+        if (getBoard().positionExists(movePosition) && !getBoard().thereIsAPiece(movePosition)) movements[movePosition.getRow()][movePosition.getColumn()] = true;
+        if (getBoard().positionExists(movePosition) && isThereOpponentPiece(movePosition)) movements[movePosition.getRow()][movePosition.getColumn()] = true;
 
         //SW-down
-        p.setValues(position.getRow() + 2, position.getColumn() + 1);
-        if (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) matAux[p.getRow()][p.getColumn()] = true;
-        if (getBoard().positionExists(p) && isThereOpponentPiece(p)) matAux[p.getRow()][p.getColumn()] = true;
+        movePosition.setValues(position.getRow() + 2, position.getColumn() + 1);
+        if (getBoard().positionExists(movePosition) && !getBoard().thereIsAPiece(movePosition)) movements[movePosition.getRow()][movePosition.getColumn()] = true;
+        if (getBoard().positionExists(movePosition) && isThereOpponentPiece(movePosition)) movements[movePosition.getRow()][movePosition.getColumn()] = true;
 
         //SE-down
-        p.setValues(position.getRow() + 1, position.getColumn() + 2);
-        if (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) matAux[p.getRow()][p.getColumn()] = true;
-        if (getBoard().positionExists(p) && isThereOpponentPiece(p)) matAux[p.getRow()][p.getColumn()] = true;
+        movePosition.setValues(position.getRow() + 1, position.getColumn() + 2);
+        if (getBoard().positionExists(movePosition) && !getBoard().thereIsAPiece(movePosition)) movements[movePosition.getRow()][movePosition.getColumn()] = true;
+        if (getBoard().positionExists(movePosition) && isThereOpponentPiece(movePosition)) movements[movePosition.getRow()][movePosition.getColumn()] = true;
 
-        return matAux;
+        return movements;
     }
 }
