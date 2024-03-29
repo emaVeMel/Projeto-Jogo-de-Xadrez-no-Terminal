@@ -9,7 +9,6 @@ import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 public class UI {
 
@@ -57,7 +56,7 @@ public class UI {
         printCapturedPieces(captured);
         System.out.println();
         System.out.println("Turn: " + match.getTurn());
-        if (!match.isCheckMate()) {
+        if (match.isCheckMate()) {
             System.out.println("Waiting current player: " + match.getCurrentPlayer());
             if (match.isCheck()) System.out.println("CHECK!");
         } else {

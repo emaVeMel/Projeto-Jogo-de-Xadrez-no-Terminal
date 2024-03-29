@@ -4,7 +4,6 @@ import chess.ChessException;
 import chess.ChessMatch;
 import chess.ChessPiece;
 import chess.ChessPosition;
-import chess.pieces.Rook;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -19,7 +18,7 @@ public class Main {
 
         List<ChessPiece> captured = new ArrayList<>();
 
-        while (!match.isCheckMate()) {
+        while (match.isCheckMate()) {
             try {
                 UI.clearScreen();
                 UI.printMatch(match, captured);
@@ -37,6 +36,11 @@ public class Main {
 
                 ChessPiece capturedPiece = ChessMatch.performChessMove(source, target);
                 if (capturedPiece != null) captured.add(capturedPiece);
+                if (match.getPromoted() != null) {
+                    System.out.print("Enter piece for promotion (B/N/R/Q): ");
+                    String type = sc.nextLine();
+                    match.replacePromotedPiece(type);
+                }
             } catch (ChessException e) {
                 System.out.println(e.getMessage());
                 sc.nextLine();
